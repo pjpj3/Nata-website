@@ -51,6 +51,10 @@ section.page{max-width:none;padding-left:max(5%,calc((100% - 1100px)/2));padding
 .tbl{width:100%;border-collapse:collapse;background:var(--card);font-size:.9rem;margin:.6rem 0 1.4rem}.tbl th,.tbl td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left}.tbl td+td,.tbl th+th{text-align:right}.tbl th{color:var(--sky)}
 .printhead{display:none}
 .page{display:none;min-height:60vh}.page.on{display:block}
+.hero{position:relative;overflow:hidden}
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;filter:brightness(.55);transition:opacity 1.2s}
+.hero>*:not(.hero-vid){position:relative;z-index:2}
+@media (prefers-reduced-motion:reduce){.hero-vid{display:none}}
 @keyframes titleIn{from{opacity:0;transform:translateY(24px);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
 @keyframes barIn{from{width:0}to{width:100%}}
 .page.on h2,#home.on .hero h1{animation:titleIn .8s cubic-bezier(.2,.7,.2,1) both}
@@ -89,7 +93,7 @@ summary{cursor:pointer;font-weight:600}details p{color:var(--muted);margin:.6rem
 </header>
 
 <div class="page on" id="home">
-<div class="hero">
+<div class="hero"><video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg" aria-hidden="true" onplaying="this.style.opacity=1"><source src="hero.mp4" type="video/mp4" onerror="this.parentNode.style.display='none'"></video>
  <p style="letter-spacing:.2em;font-size:.85rem;margin-bottom:0">NAMIBIAN AVIATION TRAINING ACADEMY</p>
  <h1>Your career in aviation starts here.</h1>
  <p>Professional pilot and aircraft engineering training in Namibia’s clear skies, taught by experienced instructors.</p>
