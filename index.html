@@ -322,7 +322,7 @@ function appBuild(f){
  var d=new window.jspdf.jsPDF({unit:"mm",format:"a4"}),M=0.254,E=f?f.elements:{};
  function g(n){return E[n]?E[n].value:""}
  function fd(v){return v?v.split("-").join("/"):""}
- function T(x,y,s,w,z,st){if(!s)return;z=z||14;d.setFont("helvetica",st||"normal");d.setFontSize(z);while(z>8&&d.getTextWidth(String(s))>w*M){z-=0.5;d.setFontSize(z)}d.text(String(s),x*M,(y+3)*M)}
+ function T(x,y,s,w,z,st){if(!s)return;z=z||14;d.setFont("helvetica",st||"normal");d.setFontSize(z);while(z>8&&d.getTextWidth(String(s))>w*M){z-=0.5;d.setFontSize(z)}d.text(String(s),x*M,(y-4)*M)}
  d.addImage(APP1,"JPEG",0,0,210,297);
  T(140,236,g("course"),580);T(175,274,g("first").toUpperCase(),165);T(447,274,g("surname").toUpperCase(),280);T(200,312,fd(g("dob")),155);T(212,369,g("idno"),510);T(190,407,g("nat"),530);
  T(145,446,g("a1"),580);T(66,487,g("a2"),655);T(275,524,g("home"),450);T(265,562,g("work"),460);T(262,600,g("cell"),465);T(275,639,g("email"),445);
